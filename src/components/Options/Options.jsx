@@ -1,4 +1,11 @@
-const Options = ({ good, neutral, bad, updateFeedback }) => {
+const Options = ({
+  good,
+  neutral,
+  bad,
+  updateFeedback,
+  totalFeedback,
+  resetFeedback,
+}) => {
   return (
     <div>
       <button onClick={() => updateFeedback("good")} type="button">
@@ -10,6 +17,11 @@ const Options = ({ good, neutral, bad, updateFeedback }) => {
       <button onClick={() => updateFeedback("bad")} type="button">
         {bad}
       </button>
+      {totalFeedback > 0 && (
+        <button onClick={resetFeedback} type="button">
+          Reset
+        </button>
+      )}
     </div>
   );
 };
