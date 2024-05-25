@@ -1,0 +1,15 @@
+.options {
+  padding: 15px;
+}
+
+.btn {
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: #b8b8b5;
+  border-color: transparent;
+}
+
+.btn:not(:last-child) {
+  margin-right: 25px;
+}

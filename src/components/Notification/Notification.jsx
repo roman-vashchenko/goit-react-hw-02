@@ -1,6 +1,7 @@
+import css from "../Notification/Notification.module.css";
 const Notification = ({ text }) => {
   return (
-    <div>
+    <div className={css.text}>
       <p>{text}</p>
     </div>
   );

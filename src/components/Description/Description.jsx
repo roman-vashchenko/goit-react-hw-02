@@ -1,8 +1,10 @@
+import css from "../Description/Description.module.css";
+
 const Description = ({ title, description }) => {
   return (
     <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <h1 className={css.title}>{title}</h1>
+      <p className={css.description}>{description}</p>
     </div>
   );
 };

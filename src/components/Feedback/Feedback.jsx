@@ -1,11 +1,20 @@
-const Feedback = ({ options: { good, neutral, bad } }) => {
+import css from "../Feedback/Feedback.module.css";
+import PositiveFeedback from "../Positive/PositiveFeedback";
+
+const Feedback = ({ feedback, positiveFeedback }) => {
+  const options = Object.keys(feedback);
+
   return (
-    <div>
+    <div className={css.listFeedback}>
       <ul>
-        <li>Good: {good}</li>
-        <li>Neutral: {neutral}</li>
-        <li>Bad: {bad}</li>
+        {options.map((option, index) => (
+          <li key={index}>
+            {option.charAt(0).toUpperCase() + option.slice(1)}:{" "}
+            {feedback[option]}
+          </li>
+        ))}
       </ul>
+      <PositiveFeedback positiveFeedback={positiveFeedback} />
     </div>
   );
 };

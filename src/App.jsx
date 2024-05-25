@@ -23,12 +23,7 @@ function App() {
   }, [feedback]);
 
   const updateFeedback = (feedbackType) => {
-    if (feedbackType === "good")
-      setFeedback({ ...feedback, good: feedback.good + 1 });
-    if (feedbackType === "neutral")
-      setFeedback({ ...feedback, neutral: feedback.neutral + 1 });
-    if (feedbackType === "bad")
-      setFeedback({ ...feedback, bad: feedback.bad + 1 });
+    setFeedback({ ...feedback, [feedbackType]: feedback[feedbackType] + 1 });
   };
 
   const resetFeedback = () => {
@@ -48,17 +43,14 @@ function App() {
         description="Please leave your feedback about our service by selecting one of the options below."
       />
       <Options
-        good="Good"
-        neutral="Neutral"
-        bad="Bad"
+        feedback={feedback}
         updateFeedback={updateFeedback}
         totalFeedback={totalFeedback}
         resetFeedback={resetFeedback}
       />
       {totalFeedback > 0 ? (
         <>
-          <Feedback options={feedback} />
-          <p>Positive: {positiveFeedback}%</p>
+          <Feedback feedback={feedback} positiveFeedback={positiveFeedback} />
         </>
       ) : (
         <Notification text="No feedback yet" />
