@@ -1,7 +1,8 @@
 import css from "../Feedback/Feedback.module.css";
 import PositiveFeedback from "../Positive/PositiveFeedback";
+import TotalFeedback from "../Total/TotalFeedback";
 
-const Feedback = ({ feedback, positiveFeedback }) => {
+const Feedback = ({ feedback, positiveFeedback, totalFeedback }) => {
   const options = Object.keys(feedback);
 
   return (
@@ -14,6 +15,7 @@ const Feedback = ({ feedback, positiveFeedback }) => {
           </li>
         ))}
       </ul>
+      <TotalFeedback totalFeedback={totalFeedback} />
       <PositiveFeedback positiveFeedback={positiveFeedback} />
     </div>
   );
